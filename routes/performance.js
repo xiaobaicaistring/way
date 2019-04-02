@@ -13,7 +13,7 @@ client.on("error", function (err) {
 // etp: inn
 // ep: {"startTime":1554199581965,"lookupDomainTime":0,"connectTime":25,"requestTime":152,"networkTime":183,"domReadyTime":1088,"firstPaintTime":188}
 router.get('/', function(req, res, next) {
-  client.lpush('logstash', req.query.ep)
+  client.lpush('logstash', dreq.query.ep)
   res.send('success');
 });
 
