@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var kafka = require('kafka-node');
 var Producer = kafka.Producer;
-var client = new kafka.KafkaClient({kafkaHost: 'localhost:9092'});
+var client = new kafka.Client('localhost:9092');
 var producer = new Producer(client);
 
 client.on("error", function (err) {
@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
   // client.lpush('logstash', dreq.query.ep)
   var payloads = [
     { topic: 'topic1', messages: 'hi', partition: 0 },
-    { topic: 'topic2', messages: ['hello', 'world', km] }
+    { topic: 'topic2', messages: ['hello', 'world', '666'] }
   ];
   producer.send(payloads, function (err, data) {
     console.log(err)
